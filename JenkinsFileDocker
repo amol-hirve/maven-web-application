@@ -1,0 +1,28 @@
+pipeline
+{
+    agent any
+
+    tools
+    {
+        maven 'Maven_3.9.9'
+    }
+
+    stages
+    {
+        stage('Git Checkout')
+        {
+            steps()
+            {
+                git branch: 'DevOpsMayBatch', url: 'https://github.com/MithunTechnologiesDevOps/Maven-Web-Application.git'
+            }
+        }
+
+        stage('Build Project')
+        {
+            steps()
+            {
+                sh 'mvn clean package'
+            }
+        }
+    }
+}
