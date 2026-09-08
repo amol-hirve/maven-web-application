@@ -49,5 +49,13 @@ pipeline
                 sh 'docker push mithuntechnologies/homepage-service:${buildNumber}'
             }
         }
+
+        stage('Remove Docker Image Locally in Jenkins')
+        {
+            steps()
+            {
+                sh 'docker rmi -f mithuntechnologies/homepage-service:${buildNumber}'
+            }
+        }
     }
 }
